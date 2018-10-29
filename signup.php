@@ -43,7 +43,7 @@
          <div class="form-group">
             Enter Password Again
             <input placeholder="Enter Password" data-rule-required="true" data-msg-required="Password cannot be blank" type="password"
-                   class="form-control" name="cPassword">
+                   class="form-control" name="CPassword">
         </div>
         <div class="form-group">
             Enter Address
@@ -62,17 +62,18 @@
 
     </form>
     <?php
-    if (isset($_GET["succ"])) {
-        if($_GET["succ"] == 1){
+        if(isset($_GET["succ"]) && $_GET["succ"] == 1){
             echo '<h5 class="text-danger text-info"> Signed-up successfully </h5>';
         }
         else if(isset($_GET["pass"]) && $_GET["pass"] == 0 ){
             echo '<h5 class="text-danger text-info"> Password MisMatch error </h5>';
         }
+        else if(isset($_GET["email"]) && $_GET["email"] == 0 ){
+            echo '<h5 class="text-danger text-info"> Email already taken </h5>';
+        }
         else{
             echo '<h5 class="text-danger text-info"> Signed-up failed </h5>';
         }
-    }
     ?>
 </div>
 </div>
