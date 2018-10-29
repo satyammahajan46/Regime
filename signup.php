@@ -70,6 +70,7 @@
             echo '<h5 class="text-danger text-info"> Password MisMatch error </h5>';
         }
         else{
+            WTF!!
              echo '<h5 class="text-danger text-info"> Signed-up failed </h5>';
         }
     }
