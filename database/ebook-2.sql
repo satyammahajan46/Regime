@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Oct 29, 2018 at 07:00 PM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.10
+-- Host: 127.0.0.1
+-- Generation Time: Oct 29, 2018 at 07:06 PM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,121 +25,121 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Authors`
+-- Table structure for table `authors`
 --
 
-CREATE TABLE `Authors` (
+CREATE TABLE `authors` (
   `AID` int(11) NOT NULL,
   `AName` char(20) DEFAULT NULL,
   `ADescription` char(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `Authors`
+-- Dumping data for table `authors`
 --
 
-INSERT INTO `Authors` (`AID`, `AName`, `ADescription`) VALUES
+INSERT INTO `authors` (`AID`, `AName`, `ADescription`) VALUES
 (1, 'Satyam Mahajan', 'A concise lovable, adorable author known for its writing style');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Book Genre`
+-- Table structure for table `book genre`
 --
 
-CREATE TABLE `Book Genre` (
+CREATE TABLE `book genre` (
   `BISBN` varchar(20) NOT NULL,
   `BGenre` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `Book Genre`
+-- Dumping data for table `book genre`
 --
 
-INSERT INTO `Book Genre` (`BISBN`, `BGenre`) VALUES
+INSERT INTO `book genre` (`BISBN`, `BGenre`) VALUES
 ('1234567890', 'Fiction');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Book Key`
+-- Table structure for table `book key`
 --
 
-CREATE TABLE `Book Key` (
+CREATE TABLE `book key` (
   `BID` int(9) NOT NULL,
   `BEdition` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `Book Key`
+-- Dumping data for table `book key`
 --
 
-INSERT INTO `Book Key` (`BID`, `BEdition`) VALUES
+INSERT INTO `book key` (`BID`, `BEdition`) VALUES
 (1, '1st');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Book Name`
+-- Table structure for table `book name`
 --
 
-CREATE TABLE `Book Name` (
+CREATE TABLE `book name` (
   `BID` int(9) NOT NULL,
   `BName` varchar(20) NOT NULL,
   `BISBN` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `Book Name`
+-- Dumping data for table `book name`
 --
 
-INSERT INTO `Book Name` (`BID`, `BName`, `BISBN`) VALUES
+INSERT INTO `book name` (`BID`, `BName`, `BISBN`) VALUES
 (1, 'Who Are You?', '1234567890');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Book Price`
+-- Table structure for table `book price`
 --
 
-CREATE TABLE `Book Price` (
+CREATE TABLE `book price` (
   `BName` varchar(20) NOT NULL,
   `BEdition` varchar(20) NOT NULL,
   `BPrice` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `Book Price`
+-- Dumping data for table `book price`
 --
 
-INSERT INTO `Book Price` (`BName`, `BEdition`, `BPrice`) VALUES
+INSERT INTO `book price` (`BName`, `BEdition`, `BPrice`) VALUES
 ('Who Are You?', '1st', 20);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Buys`
+-- Table structure for table `buys`
 --
 
-CREATE TABLE `Buys` (
+CREATE TABLE `buys` (
   `UID` int(11) NOT NULL,
   `BID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `Buys`
+-- Dumping data for table `buys`
 --
 
-INSERT INTO `Buys` (`UID`, `BID`) VALUES
+INSERT INTO `buys` (`UID`, `BID`) VALUES
 (1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Includes_Additional_Resources`
+-- Table structure for table `includes_additional_resources`
 --
 
-CREATE TABLE `Includes_Additional_Resources` (
+CREATE TABLE `includes_additional_resources` (
   `BID` int(9) NOT NULL,
   `RID` int(9) NOT NULL,
   `RName` varchar(50) DEFAULT NULL
@@ -148,10 +148,10 @@ CREATE TABLE `Includes_Additional_Resources` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Publisher`
+-- Table structure for table `publisher`
 --
 
-CREATE TABLE `Publisher` (
+CREATE TABLE `publisher` (
   `PID` int(11) NOT NULL,
   `PName` char(20) DEFAULT NULL,
   `PAddress` char(30) DEFAULT NULL,
@@ -159,55 +159,37 @@ CREATE TABLE `Publisher` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `Publisher`
+-- Dumping data for table `publisher`
 --
 
-INSERT INTO `Publisher` (`PID`, `PName`, `PAddress`, `PDate`) VALUES
+INSERT INTO `publisher` (`PID`, `PName`, `PAddress`, `PDate`) VALUES
 (1, 'Satyam Printing Pres', 'Satyam Imagination World, Saty', '2018-10-22');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Publishes`
+-- Table structure for table `publishes`
 --
 
-CREATE TABLE `Publishes` (
+CREATE TABLE `publishes` (
   `BID` int(11) NOT NULL,
   `PID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `Publishes`
+-- Dumping data for table `publishes`
 --
 
-INSERT INTO `Publishes` (`BID`, `PID`) VALUES
+INSERT INTO `publishes` (`BID`, `PID`) VALUES
 (1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `User`
+-- Table structure for table `user information`
 --
 
-CREATE TABLE `User` (
-  `UID` int(9) NOT NULL,
-  `UEmail` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `User`
---
-
-INSERT INTO `User` (`UID`, `UEmail`) VALUES
-(1, 'smahajan02@langara.ca');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `User Information`
---
-
-CREATE TABLE `User Information` (
+CREATE TABLE `user information` (
   `UEmail` varchar(30) NOT NULL,
   `UPassword` varchar(20) NOT NULL,
   `UName` varchar(30) NOT NULL,
@@ -216,47 +198,47 @@ CREATE TABLE `User Information` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `User Information`
+-- Dumping data for table `user information`
 --
 
-INSERT INTO `User Information` (`UEmail`, `UPassword`, `UName`, `UAddress`, `UType`) VALUES
+INSERT INTO `user information` (`UEmail`, `UPassword`, `UName`, `UAddress`, `UType`) VALUES
 ('smahajan02@langara.ca', 'satyam', 'Satyam', 'NAAH', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `User Login`
+-- Table structure for table `user login`
 --
 
-CREATE TABLE `User Login` (
+CREATE TABLE `user login` (
   `UID` int(9) NOT NULL,
   `UEmail` varchar(30) NOT NULL,
   `UPassword` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `User Login`
+-- Dumping data for table `user login`
 --
 
-INSERT INTO `User Login` (`UID`, `UEmail`, `UPassword`) VALUES
+INSERT INTO `user login` (`UID`, `UEmail`, `UPassword`) VALUES
 (1, 'smahajan02@langara.ca', 'satyam');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Writes`
+-- Table structure for table `writes`
 --
 
-CREATE TABLE `Writes` (
+CREATE TABLE `writes` (
   `AID` int(11) NOT NULL,
   `BID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `Writes`
+-- Dumping data for table `writes`
 --
 
-INSERT INTO `Writes` (`AID`, `BID`) VALUES
+INSERT INTO `writes` (`AID`, `BID`) VALUES
 (1, 1);
 
 --
@@ -264,92 +246,85 @@ INSERT INTO `Writes` (`AID`, `BID`) VALUES
 --
 
 --
--- Indexes for table `Authors`
+-- Indexes for table `authors`
 --
-ALTER TABLE `Authors`
+ALTER TABLE `authors`
   ADD PRIMARY KEY (`AID`);
 
 --
--- Indexes for table `Book Genre`
+-- Indexes for table `book genre`
 --
-ALTER TABLE `Book Genre`
+ALTER TABLE `book genre`
   ADD PRIMARY KEY (`BISBN`);
 
 --
--- Indexes for table `Book Key`
+-- Indexes for table `book key`
 --
-ALTER TABLE `Book Key`
+ALTER TABLE `book key`
   ADD PRIMARY KEY (`BID`,`BEdition`),
   ADD KEY `BEdition` (`BEdition`);
 
 --
--- Indexes for table `Book Name`
+-- Indexes for table `book name`
 --
-ALTER TABLE `Book Name`
+ALTER TABLE `book name`
   ADD PRIMARY KEY (`BID`),
   ADD UNIQUE KEY `BISBN` (`BISBN`),
   ADD KEY `BName` (`BName`);
 
 --
--- Indexes for table `Book Price`
+-- Indexes for table `book price`
 --
-ALTER TABLE `Book Price`
+ALTER TABLE `book price`
   ADD PRIMARY KEY (`BName`,`BEdition`),
   ADD KEY `book price_ibfk_1` (`BEdition`);
 
 --
--- Indexes for table `Buys`
+-- Indexes for table `buys`
 --
-ALTER TABLE `Buys`
+ALTER TABLE `buys`
   ADD PRIMARY KEY (`UID`,`BID`),
   ADD KEY `BID` (`BID`);
 
 --
--- Indexes for table `Includes_Additional_Resources`
+-- Indexes for table `includes_additional_resources`
 --
-ALTER TABLE `Includes_Additional_Resources`
+ALTER TABLE `includes_additional_resources`
   ADD PRIMARY KEY (`BID`,`RID`);
 
 --
--- Indexes for table `Publisher`
+-- Indexes for table `publisher`
 --
-ALTER TABLE `Publisher`
+ALTER TABLE `publisher`
   ADD PRIMARY KEY (`PID`);
 
 --
--- Indexes for table `Publishes`
+-- Indexes for table `publishes`
 --
-ALTER TABLE `Publishes`
+ALTER TABLE `publishes`
   ADD PRIMARY KEY (`BID`,`PID`),
   ADD KEY `PID` (`PID`);
 
 --
--- Indexes for table `User`
+-- Indexes for table `user information`
 --
-ALTER TABLE `User`
-  ADD PRIMARY KEY (`UID`),
-  ADD UNIQUE KEY `UEmail` (`UEmail`);
-
---
--- Indexes for table `User Information`
---
-ALTER TABLE `User Information`
+ALTER TABLE `user information`
   ADD PRIMARY KEY (`UEmail`,`UPassword`),
   ADD UNIQUE KEY `UEmail` (`UEmail`),
   ADD KEY `UPassword` (`UPassword`);
 
 --
--- Indexes for table `User Login`
+-- Indexes for table `user login`
 --
-ALTER TABLE `User Login`
+ALTER TABLE `user login`
   ADD PRIMARY KEY (`UID`,`UEmail`,`UPassword`),
   ADD UNIQUE KEY `UEmail` (`UEmail`),
   ADD KEY `UPassword` (`UPassword`);
 
 --
--- Indexes for table `Writes`
+-- Indexes for table `writes`
 --
-ALTER TABLE `Writes`
+ALTER TABLE `writes`
   ADD PRIMARY KEY (`AID`,`BID`),
   ADD KEY `BID` (`BID`);
 
@@ -358,39 +333,33 @@ ALTER TABLE `Writes`
 --
 
 --
--- AUTO_INCREMENT for table `Authors`
+-- AUTO_INCREMENT for table `authors`
 --
-ALTER TABLE `Authors`
+ALTER TABLE `authors`
   MODIFY `AID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `Book Key`
+-- AUTO_INCREMENT for table `book key`
 --
-ALTER TABLE `Book Key`
+ALTER TABLE `book key`
   MODIFY `BID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `Book Name`
+-- AUTO_INCREMENT for table `book name`
 --
-ALTER TABLE `Book Name`
+ALTER TABLE `book name`
   MODIFY `BID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `Publisher`
+-- AUTO_INCREMENT for table `publisher`
 --
-ALTER TABLE `Publisher`
+ALTER TABLE `publisher`
   MODIFY `PID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `User`
+-- AUTO_INCREMENT for table `user login`
 --
-ALTER TABLE `User`
-  MODIFY `UID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `User Login`
---
-ALTER TABLE `User Login`
+ALTER TABLE `user login`
   MODIFY `UID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
@@ -398,64 +367,57 @@ ALTER TABLE `User Login`
 --
 
 --
--- Constraints for table `Book Genre`
+-- Constraints for table `book genre`
 --
-ALTER TABLE `Book Genre`
-  ADD CONSTRAINT `book genre_ibfk_1` FOREIGN KEY (`BISBN`) REFERENCES `Book Name` (`BISBN`) ON UPDATE CASCADE;
+ALTER TABLE `book genre`
+  ADD CONSTRAINT `book genre_ibfk_1` FOREIGN KEY (`BISBN`) REFERENCES `book name` (`BISBN`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `Book Name`
+-- Constraints for table `book name`
 --
-ALTER TABLE `Book Name`
-  ADD CONSTRAINT `book name_ibfk_1` FOREIGN KEY (`BID`) REFERENCES `Book Key` (`BID`) ON UPDATE CASCADE;
+ALTER TABLE `book name`
+  ADD CONSTRAINT `book name_ibfk_1` FOREIGN KEY (`BID`) REFERENCES `book key` (`BID`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `Book Price`
+-- Constraints for table `book price`
 --
-ALTER TABLE `Book Price`
-  ADD CONSTRAINT `book price_ibfk_1` FOREIGN KEY (`BEdition`) REFERENCES `Book Key` (`BEdition`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `book price_ibfk_2` FOREIGN KEY (`BName`) REFERENCES `Book Name` (`BName`) ON UPDATE CASCADE;
+ALTER TABLE `book price`
+  ADD CONSTRAINT `book price_ibfk_1` FOREIGN KEY (`BEdition`) REFERENCES `book key` (`BEdition`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `book price_ibfk_2` FOREIGN KEY (`BName`) REFERENCES `book name` (`BName`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `Buys`
+-- Constraints for table `buys`
 --
-ALTER TABLE `Buys`
-  ADD CONSTRAINT `buys_ibfk_1` FOREIGN KEY (`UID`) REFERENCES `User Login` (`UID`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `buys_ibfk_2` FOREIGN KEY (`BID`) REFERENCES `Book Key` (`BID`) ON UPDATE CASCADE;
+ALTER TABLE `buys`
+  ADD CONSTRAINT `buys_ibfk_1` FOREIGN KEY (`UID`) REFERENCES `user login` (`UID`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `buys_ibfk_2` FOREIGN KEY (`BID`) REFERENCES `book key` (`BID`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `Includes_Additional_Resources`
+-- Constraints for table `includes_additional_resources`
 --
-ALTER TABLE `Includes_Additional_Resources`
-  ADD CONSTRAINT `includes_additional_resources_ibfk_1` FOREIGN KEY (`BID`) REFERENCES `Book Key` (`BID`) ON UPDATE CASCADE;
+ALTER TABLE `includes_additional_resources`
+  ADD CONSTRAINT `includes_additional_resources_ibfk_1` FOREIGN KEY (`BID`) REFERENCES `book key` (`BID`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `Publishes`
+-- Constraints for table `publishes`
 --
-ALTER TABLE `Publishes`
-  ADD CONSTRAINT `publishes_ibfk_1` FOREIGN KEY (`BID`) REFERENCES `Book Key` (`BID`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `publishes_ibfk_2` FOREIGN KEY (`PID`) REFERENCES `Publisher` (`PID`);
+ALTER TABLE `publishes`
+  ADD CONSTRAINT `publishes_ibfk_1` FOREIGN KEY (`BID`) REFERENCES `book key` (`BID`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `publishes_ibfk_2` FOREIGN KEY (`PID`) REFERENCES `publisher` (`PID`);
 
 --
--- Constraints for table `User`
+-- Constraints for table `user information`
 --
-ALTER TABLE `User`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`UID`) REFERENCES `User Login` (`UID`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`UEmail`) REFERENCES `User Login` (`UEmail`) ON UPDATE CASCADE;
+ALTER TABLE `user information`
+  ADD CONSTRAINT `user information_ibfk_1` FOREIGN KEY (`UEmail`) REFERENCES `user login` (`UEmail`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `user information_ibfk_2` FOREIGN KEY (`UPassword`) REFERENCES `user login` (`UPassword`);
 
 --
--- Constraints for table `User Information`
+-- Constraints for table `writes`
 --
-ALTER TABLE `User Information`
-  ADD CONSTRAINT `user information_ibfk_1` FOREIGN KEY (`UEmail`) REFERENCES `User Login` (`UEmail`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `user information_ibfk_2` FOREIGN KEY (`UPassword`) REFERENCES `User Login` (`UPassword`);
-
---
--- Constraints for table `Writes`
---
-ALTER TABLE `Writes`
-  ADD CONSTRAINT `writes_ibfk_1` FOREIGN KEY (`BID`) REFERENCES `Book Key` (`BID`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `writes_ibfk_2` FOREIGN KEY (`AID`) REFERENCES `Authors` (`AID`);
+ALTER TABLE `writes`
+  ADD CONSTRAINT `writes_ibfk_1` FOREIGN KEY (`BID`) REFERENCES `book key` (`BID`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `writes_ibfk_2` FOREIGN KEY (`AID`) REFERENCES `authors` (`AID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
