@@ -69,7 +69,6 @@
         else if(isset($_GET["pass"]) && $_GET["pass"] == 0 ){
             echo '<h5 class="text-danger text-info"> Password MisMatch error </h5>';
         }
-        
         else{
              echo '<h5 class="text-danger text-info"> Signed-up failed </h5>';
         }
