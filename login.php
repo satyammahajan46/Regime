@@ -35,8 +35,11 @@
 
                 </form>
                 <?php
-                if(isset($_GET["lg"])){
+                if(isset($_GET["lg"]) && $_GET["lg"] == 0){
                     echo "Login credentails are required";
+                }
+                else if(isset($_GET["lg"]) && $_GET["lg"] == 1){
+                    echo "Logout Successful";
                 }
                 if (isset($_GET["succ"])) {
                     echo $_GET["succ"];

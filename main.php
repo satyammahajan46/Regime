@@ -25,13 +25,13 @@ include 'validateLogin.php';
                                     <li><a href="test.php" class="page-scroll"><span data-hover="Books">books</span></a></li>
                                     <li><a href="test.php" class="page-scroll"><span data-hover="Order&nbsp;History">Order History</span></a></li>
                                     <li><a href="test.php" class="page-scroll"><span data-hover="Contact&nbsp;Us">Contact Us</span></a></li>
-                                    <li><a href="index.php" class="page-scroll"><span data-hover="Logout">Logout</span></a></li>
+                                    <li><a href="logout.php" class="page-scroll"><span data-hover="Logout">Logout</span></a></li>
                                 </ul>
                             </div>
                         </nav>
                     </div>
                 </div>
-                <h3 class="right_align">Welcome</h3>
+                <h3 class="right-align">Welcome</h3>
             </section>
         </div>
         <footer>
