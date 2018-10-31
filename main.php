@@ -12,7 +12,7 @@ include 'validateLogin.php';
     <body>
         <div>
             <?php
-            include "commonHeader.php";
+            include "mainHeader.php";
             include "connection.php";
             ?>
             <section class="banner-w3ls">
