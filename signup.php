@@ -62,17 +62,19 @@
 
     </form>
     <?php
-        if(isset($_GET["succ"]) && $_GET["succ"] == 1){
-            echo '<h5 class="text-danger text-info"> Signed-up successfully </h5>';
-        }
-        else if(isset($_GET["pass"]) && $_GET["pass"] == 0 ){
-            echo '<h5 class="text-danger text-info"> Password MisMatch error </h5>';
-        }
-        else if(isset($_GET["email"]) && $_GET["email"] == 0 ){
-            echo '<h5 class="text-danger text-info"> Email already taken </h5>';
-        }
-        else{
-            echo '<h5 class="text-danger text-info"> Signed-up failed </h5>';
+        if(isset($_GET["succ"]) || isset($_GET["email"] || isset($_GET["pass"]) ){
+            if(isset($_GET["succ"]) && $_GET["succ"] == 1){
+                echo '<h5 class="text-danger text-info"> Signed-up successfully </h5>';
+            }
+            else if(isset($_GET["pass"]) && $_GET["pass"] == 0 ){
+                echo '<h5 class="text-danger text-info"> Password MisMatch error </h5>';
+            }
+            else if(isset($_GET["email"]) && $_GET["email"] == 0 ){
+                echo '<h5 class="text-danger text-info"> Email already taken </h5>';
+            }
+            else{
+                echo '<h5 class="text-danger text-info"> Signed-up failed </h5>';
+            }
         }
     ?>
 </div>

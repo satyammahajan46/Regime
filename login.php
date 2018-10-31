@@ -35,9 +35,12 @@
 
     </form>
     <?php
-    if (isset($_GET["succ"])) {
-        echo $_GET["succ"];
-    }
+        if(isset($_GET["lg"])){
+            echo "Login credentails are required";
+        }
+        if (isset($_GET["succ"])) {
+            echo $_GET["succ"];
+        }
     ?>
 </div>
 </div>

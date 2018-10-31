@@ -1,3 +1,6 @@
+<?php
+    include 'validateLogin.php';
+?>
 <html>
 <head>
 <title>Login</title>
@@ -29,12 +32,14 @@
 </div>
 </div>
 <h3 class="right_align">Welcome</h3>
+</section>
+</div>
 <footer>
-<section class="copyright-w3-agileits">
-<?php
+    <section class="copyright-w3-agileits">
+        <?php
     include "footer.php";
     ?>
-</footer>
-</section>
+    </section>
+    </footer>
 </body>
 </html>

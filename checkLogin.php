@@ -15,8 +15,9 @@ $row=mysqli_num_rows($result);
 if($row)
 {
     $_SESSION["UEmail"] = $email;
-    header("location:test.php");
-} else {
+    header("location:main.php");
+}
+else {
     header("location:login.php?succ=Wrong Email or Password");
 }
 ?>
