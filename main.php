@@ -31,7 +31,9 @@ include 'validateLogin.php';
                         </nav>
                     </div>
                 </div>
-                <h3 class="right-align">Welcome</h3>
+                <h3 class="right-align">Welcome 
+                    <?php include 'getName.php'; ?>
+                </h3>
             </section>
         </div>
         <footer>
