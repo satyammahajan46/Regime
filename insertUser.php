@@ -24,7 +24,7 @@ while($row = mysqli_fetch_array($result))
 
 if($_POST['Password']!=$_POST['CPassword'])
 {
-     header("Location:signup.php?pass=0");
+     header("location:signup.php?pass=0");
 
 }
 else if ($matchCheck == 1)
