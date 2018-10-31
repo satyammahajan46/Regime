@@ -62,7 +62,7 @@
 
     </form>
     <?php
-        if(isset($_GET["succ"]) || isset($_GET["email"] || isset($_GET["pass"]) ){
+        if(isset($_GET["succ"]) || isset($_GET["email"]) || isset($_GET["pass"]) ){
             if(isset($_GET["succ"]) && $_GET["succ"] == 1){
                 echo '<h5 class="text-danger text-info"> Signed-up successfully </h5>';
             }
