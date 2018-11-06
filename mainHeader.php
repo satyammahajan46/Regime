@@ -15,6 +15,9 @@ include 'header_files.php';
                                         <h3>eBook</h3>
                                     </a>
                                 </li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right cl-effect-5">
+                                
                                 <li><span>&nbsp;&nbsp;&nbsp;</span></li>
                                 <li><span>&nbsp;&nbsp;&nbsp;</span></li>
                                 <li><span>&nbsp;&nbsp;&nbsp;</span></li>
