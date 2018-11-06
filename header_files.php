@@ -13,6 +13,7 @@
 <link href="css/services.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="css/pogo-slider.min.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link rel="stylesheet" href="css/jquery-ui.css">
 <!--<link href="css/bootstrap.css" rel="stylesheet">-->
 
 

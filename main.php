@@ -5,25 +5,23 @@ include 'validateLogin.php';
     <head>
         <title>Login</title>
         <?php
-        include 'header_files.php';
+        include 'mainHeader.php';
         ?>
         <title>Welcome</title>
     </head>
     <body>
-        <div>
+        <div style="padding-top:50px">
             <?php
-            include "mainHeader.php";
             include "connection.php";
             ?>
-            
         </div>
-
-        <h3 class="right-align">Welcome 
+        
+        <h3 class="text-center">Welcome 
             <?php include 'getName.php'; ?>
         </h3>
 
 
-        <footer>
+        <footer style="padding-top:50px">
             <section class="copyright-w3-agileits">
                 <?php
                 include "footer.php";
