@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2018 at 07:06 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Generation Time: Nov 06, 2018 at 08:17 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 5.6.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -39,7 +39,16 @@ CREATE TABLE `authors` (
 --
 
 INSERT INTO `authors` (`AID`, `AName`, `ADescription`) VALUES
-(1, 'Satyam Mahajan', 'A concise lovable, adorable author known for its writing style');
+(1, 'Satyam Mahajan', 'A concise lovable, adorable author known for its writing style'),
+(2, 'Robert Collen', 'Born in Australia. Studied at California University in USA. Well-know author of the time'),
+(3, 'Edward Stewart', 'Eminent fiction writter. Lives in NY. Graduated from University of Water Loo in Canada'),
+(4, 'Flemming Wood', 'Lives in Singapore and graduated from Cambridge University. Famous Computer Science author'),
+(5, 'Michael Yong', 'Lives in Canada. Graduated from UBC. Views the world with a broad perspective.'),
+(6, 'Collen McCarty', 'Born and lives in Switzerland. Vivid writting style.'),
+(7, 'Ramkrishan Mahajan', 'Born and lives in India. Author with logical and clear thoughts.'),
+(8, 'Jeff vandermer', 'Born and lives in Dubai. Author known for his unique layout.'),
+(9, 'Alison Edison', 'Born and lives in New York. Famous author with brilliant examples to illustrate concepts.'),
+(10, 'Jamie Denike', 'Born and lives in Canada. Graduated from UBC. Writter that uses various examples to explain hypothesis.');
 
 -- --------------------------------------------------------
 
@@ -57,6 +66,16 @@ CREATE TABLE `book genre` (
 --
 
 INSERT INTO `book genre` (`BISBN`, `BGenre`) VALUES
+('1000000001', 'Biology'),
+('1000000002', 'Biology'),
+('1000000003', 'Computer Science'),
+('1000000004', 'Arts'),
+('1000000005', 'Computer Science'),
+('1000000006', 'Computer Science'),
+('1000000007', 'Biology'),
+('1000000008', 'Biology'),
+('1000000009', 'Computer Science'),
+('1000000010', 'Arts'),
 ('1234567890', 'Fiction');
 
 -- --------------------------------------------------------
@@ -75,7 +94,17 @@ CREATE TABLE `book key` (
 --
 
 INSERT INTO `book key` (`BID`, `BEdition`) VALUES
-(1, '1st');
+(101, '1st'),
+(102, '2nd'),
+(103, '5th'),
+(104, '4th'),
+(105, '7th'),
+(106, '7th'),
+(107, '3rd'),
+(108, '4th'),
+(109, '3rd'),
+(110, '9th'),
+(111, '1st');
 
 -- --------------------------------------------------------
 
@@ -94,7 +123,17 @@ CREATE TABLE `book name` (
 --
 
 INSERT INTO `book name` (`BID`, `BName`, `BISBN`) VALUES
-(1, 'Who Are You?', '1234567890');
+(101, 'Who Are You?', '1234567890'),
+(102, 'Biology of Life', '1000000001'),
+(103, 'Biology of Life', '1000000002'),
+(104, 'World of Computer Sc', '1000000003'),
+(105, 'Fine Arts', '1000000004'),
+(106, 'Intro to Computer Sc', '1000000005'),
+(107, 'Intro to Web Program', '1000000006'),
+(108, 'Biochemistry', '1000000007'),
+(109, 'Cell Biology', '1000000008'),
+(110, 'Java', '1000000009'),
+(111, 'Fine Arts', '1000000010');
 
 -- --------------------------------------------------------
 
@@ -113,7 +152,17 @@ CREATE TABLE `book price` (
 --
 
 INSERT INTO `book price` (`BName`, `BEdition`, `BPrice`) VALUES
-('Who Are You?', '1st', 20);
+('Biochemistry', '4th', 377.8),
+('Biology of Life', '2nd', 399.99),
+('Biology of Life', '5th', 450),
+('Cell Biology', '3rd', 340.5),
+('Fine Arts', '1st', 110.5),
+('Fine Arts', '7th', 150),
+('Intro to Computer Sc', '7th', 455),
+('Intro to Web Program', '3rd', 400),
+('Java', '9th', 330),
+('Who Are You?', '1st', 20),
+('World of Computer Sc', '4th', 289.9);
 
 -- --------------------------------------------------------
 
@@ -131,7 +180,7 @@ CREATE TABLE `buys` (
 --
 
 INSERT INTO `buys` (`UID`, `BID`) VALUES
-(1, 1);
+(1, 101);
 
 -- --------------------------------------------------------
 
@@ -163,7 +212,16 @@ CREATE TABLE `publisher` (
 --
 
 INSERT INTO `publisher` (`PID`, `PName`, `PAddress`, `PDate`) VALUES
-(1, 'Satyam Printing Pres', 'Satyam Imagination World, Saty', '2018-10-22');
+(1, 'Satyam Printing Pres', 'Satyam Imagination World, Saty', '2018-10-22'),
+(2, 'Oxford Education', '244 5th Ave #2, New York, NY 1', '2010-09-10'),
+(3, 'Pearson University E', '8984 Glenlake Street Brooklyn,', '1998-05-11'),
+(4, 'Harper Collins', '9365 South Tower Rd. Covington', '1994-03-24'),
+(5, 'James and Sons', '41 Pawnee Ave.Muskegon, MI 494', '2017-07-30'),
+(6, 'Bloomsbury', '7061 West Snake Hill Street St', '2001-04-11'),
+(7, 'John Wiley and sons', '201 Oak St. Maineville, OH 450', '2002-06-30'),
+(8, 'Simon and Schuster', '800 Foxrun Rd. Wolfville, NS B', '0196-01-09'),
+(9, 'Pan Macmillian', '7447 Big Rock Cove Dr.Olds, AB', '2014-08-01'),
+(10, 'A&C Black', '46 Boston St.\r\nSt. Mary,ON N4X', '1991-03-16');
 
 -- --------------------------------------------------------
 
@@ -181,7 +239,16 @@ CREATE TABLE `publishes` (
 --
 
 INSERT INTO `publishes` (`BID`, `PID`) VALUES
-(1, 1);
+(101, 1),
+(102, 2),
+(103, 3),
+(104, 4),
+(105, 5),
+(106, 6),
+(107, 7),
+(108, 8),
+(109, 9),
+(110, 10);
 
 -- --------------------------------------------------------
 
@@ -239,7 +306,16 @@ CREATE TABLE `writes` (
 --
 
 INSERT INTO `writes` (`AID`, `BID`) VALUES
-(1, 1);
+(1, 101),
+(2, 102),
+(3, 103),
+(4, 104),
+(5, 105),
+(6, 106),
+(7, 107),
+(8, 108),
+(9, 109),
+(10, 110);
 
 --
 -- Indexes for dumped tables
@@ -336,25 +412,25 @@ ALTER TABLE `writes`
 -- AUTO_INCREMENT for table `authors`
 --
 ALTER TABLE `authors`
-  MODIFY `AID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `AID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `book key`
 --
 ALTER TABLE `book key`
-  MODIFY `BID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `BID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 
 --
 -- AUTO_INCREMENT for table `book name`
 --
 ALTER TABLE `book name`
-  MODIFY `BID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `BID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 
 --
 -- AUTO_INCREMENT for table `publisher`
 --
 ALTER TABLE `publisher`
-  MODIFY `PID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `PID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user login`
