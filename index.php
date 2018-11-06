@@ -29,7 +29,7 @@
             <div class="pogoSlider" id="js-main-slider">
                 <div class="pogoSlider-slide" data-transition="barRevealDown" data-duration="1000"  style="background-image:url(images/sliderImage1.jpg);">
                     <div class="pogoSlider-slide-element">
-                        <h3 >Easy to access</h3>
+                        <h3 >Easy to use</h3>
                     </div>
                 </div>
                 <div class="pogoSlider-slide" data-transition="slide" data-duration="1000"  style="background-image: url(images/sliderImage2.jpg);">
@@ -39,7 +39,7 @@
                 </div>
                 <div class="pogoSlider-slide" data-transition="zipReveal" data-duration="1000"  style="background-image: url(images/sliderImage3.jpg);">
                     <div class="pogoSlider-slide-element">
-                        <h3>Huge Options</h3>
+                        <h3>Wide Range of Options</h3>
                     </div>
                 </div>
                 <div class="pogoSlider-slide" data-transition="verticalSplitReveal" data-duration="1000"  style="background-image: url(images/sliderImage4.jpg);">

@@ -27,7 +27,7 @@
     <form action="insertUser.php" id="signUpForm" method="post">
         <div class="form-group">
             Enter Full Name
-            <input type="text" placeholder="Enter Name" data-rule-required="true" data-msg-required="Name Cannot be blank"
+            <input type="text" placeholder="Enter Full Name" data-rule-required="true" data-msg-required="Name Cannot be blank"
                    data-rule-name="true" class="form-control" name="FullName">
         </div>
         <div class="form-group">
