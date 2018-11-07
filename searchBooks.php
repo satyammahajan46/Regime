@@ -30,7 +30,7 @@
 			$query2 = "SELECT BISBN FROM `book genre` WHERE" . $string;
 			$result2 = mysqli_query($conn,$query2);
 
-		    if ($result2) {
+		    if ($result2->num_rows > 0) {
 		    // output data of each row
 		    	echo '<table align="center" border= "1">';
 				echo '<tr>
@@ -40,7 +40,7 @@
 		            echo "<tr> <th>". $row2["BISBN"]. "</th> </tr> ";
 		        }
 		    } else {
-		        echo "No Books Found ".$query2;
+		        echo "No Books Found ";
 		    }
 
 		}
