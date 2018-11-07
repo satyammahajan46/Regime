@@ -41,7 +41,7 @@ include 'header_files.php';
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Buy Books <span class="caret"></span>
                                         <ul class="dropdown-menu">
-                                            <li><a href="test.php">Search Book</a></li>
+                                            <li><a href="search.php">Search Book</a></li>
                                             <li><a href="test.php">IDK</a></li>
 
                                         </ul>
