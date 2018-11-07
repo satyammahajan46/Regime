@@ -7,20 +7,13 @@ include "validateLogin.php";
         <?php
         include "mainHeader.php";
         ?>
-        <title>Welcome</title>
-        <style>
-      h3 {
-          font-size:3em;
-          font-weight:bold;
-          }
-        </style>
+        <title>Delete account</title>
     </head>
     <body>
         <div>
             <?php
             include "connection.php";
             ?>
-            <h3>For security, please renter your password</h3>
             <div class="container" style="padding-bottom:10;padding-top:10px;">
                 <h1 class="center-block">Provide following details</h1>
                 <form action="checkdeleteaccount.php" id="loginForm" method="post">
@@ -39,13 +32,24 @@ include "validateLogin.php";
                     <div class="form-group">
                         Why you want to delete your account? (OPTIONAL)
                         <input placeholder="Reason to delete your account" data-rule-required="false" type="text"
-                            class="form-control">
-                        </div>
-                     <div class="form-group">
+                               class="form-control">
+                    </div>
+                    <div class="form-group">
                         <input type="submit" value="Delete account" class="btn btn-success">
                     </div>
 
-                </form> </div>
+                </form>
+                <?php
+                if(isset($_GET["succ"])){
+                    if($_GET["succ"] == "wep") {
+                        echo "Wrong current Password";
+                    }
+                     if($_GET["succ"] == "err") {
+                        echo "Error Occured";
+                    }
+                }
+                ?>
+            </div>
         </div>
 
         <footer>

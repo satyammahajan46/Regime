@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2018 at 08:17 PM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 5.6.38
+-- Generation Time: Nov 07, 2018 at 09:39 PM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -175,13 +175,6 @@ CREATE TABLE `buys` (
   `BID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `buys`
---
-
-INSERT INTO `buys` (`UID`, `BID`) VALUES
-(1, 101);
-
 -- --------------------------------------------------------
 
 --
@@ -269,7 +262,7 @@ CREATE TABLE `user information` (
 --
 
 INSERT INTO `user information` (`UEmail`, `UPassword`, `UName`, `UAddress`, `UType`) VALUES
-('smahajan02@langara.ca', 'satyam', 'Satyam', 'NAAH', 1);
+('smahajan02@langara.ca', 'sam', 'Satyam Mahajan', '777 111 surrey', 1);
 
 -- --------------------------------------------------------
 
@@ -288,7 +281,7 @@ CREATE TABLE `user login` (
 --
 
 INSERT INTO `user login` (`UID`, `UEmail`, `UPassword`) VALUES
-(1, 'smahajan02@langara.ca', 'satyam');
+(3, 'smahajan02@langara.ca', 'sam');
 
 -- --------------------------------------------------------
 
@@ -436,7 +429,7 @@ ALTER TABLE `publisher`
 -- AUTO_INCREMENT for table `user login`
 --
 ALTER TABLE `user login`
-  MODIFY `UID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `UID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -465,8 +458,8 @@ ALTER TABLE `book price`
 -- Constraints for table `buys`
 --
 ALTER TABLE `buys`
-  ADD CONSTRAINT `buys_ibfk_1` FOREIGN KEY (`UID`) REFERENCES `user login` (`UID`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `buys_ibfk_2` FOREIGN KEY (`BID`) REFERENCES `book key` (`BID`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `buys_ibfk_1` FOREIGN KEY (`UID`) REFERENCES `user login` (`UID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `buys_ibfk_2` FOREIGN KEY (`BID`) REFERENCES `book key` (`BID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `includes_additional_resources`
@@ -485,8 +478,8 @@ ALTER TABLE `publishes`
 -- Constraints for table `user information`
 --
 ALTER TABLE `user information`
-  ADD CONSTRAINT `user information_ibfk_1` FOREIGN KEY (`UEmail`) REFERENCES `user login` (`UEmail`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `user information_ibfk_2` FOREIGN KEY (`UPassword`) REFERENCES `user login` (`UPassword`);
+  ADD CONSTRAINT `user information_ibfk_1` FOREIGN KEY (`UEmail`) REFERENCES `user login` (`UEmail`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user information_ibfk_2` FOREIGN KEY (`UPassword`) REFERENCES `user login` (`UPassword`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `writes`

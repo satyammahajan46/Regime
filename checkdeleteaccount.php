@@ -11,13 +11,17 @@ $row=mysqli_num_rows($result);
 
 if($row)
 {
-    $delete="DELETE from user information where 'UEmail'='$email'";
+    $delete="DELETE from `user login` where UEmail='$email'";
     if ($conn->query($delete) === TRUE) {
-         header("location:deleteaccount.php?succ=account deleted");
-}
+        include "logout.php";
+        header("location:login.php?del=sad");
+    }
+    else{
+        header("location:deleteacc.php?succ=err");
+    }
 }
 else {
-    header("location:deleteaccount.php?succ=Wrong Password");
+    header("location:deleteacc.php?succ=wep");
 }
-    
+
 ?>

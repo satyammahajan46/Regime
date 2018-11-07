@@ -41,6 +41,9 @@
                 else if(isset($_GET["lg"]) && $_GET["lg"] == 1){
                     echo "Logout Successful";
                 }
+                if (isset($_GET["del"])&& $_GET["del"]=="sad") {
+                    echo "Account was deleted successfully";
+                }
                 if (isset($_GET["succ"])) {
                     echo $_GET["succ"];
                 }
