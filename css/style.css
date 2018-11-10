@@ -1847,6 +1847,10 @@ section.contact-wthree button.btn.btn-outline.btn-lg:hover {
         padding:10px 0;
     } 
 }
-
+.contactcolumn{
+    position: absolute;
+    right: 180px;    
+    
+}
 
 /*-- /responsive design --*/
