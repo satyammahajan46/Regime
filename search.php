@@ -38,7 +38,7 @@ include "validateLogin.php";
 
                 echo '<table><th>';
                 while($row = $result->fetch_assoc()) {  
-                    echo '<td><input type="checkbox" name="genre_list[]" value='.$row["BGenre"]. '><label> &nbsp'.$row["BGenre"].'</label> &nbsp </td>';
+                    echo '<td><input type="checkbox" name="genre_list[]" value="'.$row["BGenre"].'"><label> &nbsp'.$row["BGenre"].'</label> &nbsp </td>';
 
                 }
                 echo '</td></table><br><input type="submit" name="submit" value="Submit"/> </form>';
