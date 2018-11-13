@@ -33,7 +33,7 @@
 
 		    if ($result2->num_rows > 0) {
 		    // output data of each row
-		    	echo '<form action="buy.php" method="post">';
+		    	echo '<form action="search.php" method="post">';
 		    	echo '<table border= "1">';
 				echo '<tr>
 				<th>Book Name</th>
@@ -51,5 +51,17 @@
 
 		}
 		
+	}
+
+	if(isset($_POST['buy'])){
+		$UEmail = $_SESSION["UEmail"];
+		$BID = $_POST['buy'];
+		$query = "INSERT INTO buys VALUES ((SELECT UID FROM `user login` WHERE UEmail = '".$UEmail."'),".$BID.")";
+		mysqli_query($conn,$query);
+
+		$query2 ="SELECT BName FROM `book name` WHERE BID =".$BID;
+		$result = mysqli_query($conn,$query2);
+		$string = $result->fetch_assoc();
+		echo "Thank you for buying ".$string["BName"];
 	}
 ?>
