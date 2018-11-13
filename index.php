@@ -20,7 +20,7 @@
                                 <li class="active"><a href="index.php" class="page-scroll"><span data-hover="Home">Home</span></a></li>
                                 <li><a href="signup.php" class="page-scroll"><span data-hover="Sign&nbsp;Up">Sign Up</span></a></li>
                                 <li><a href="login.php" class="page-scroll"><span data-hover="Login">Login</span></a></li>
-                                <li><a href="test.php" class="page-scroll"><span data-hover="Contact&nbsp;Us">Contact Us</span></a></li>
+                                <li><a href="contactUs.php" class="page-scroll"><span data-hover="Contact&nbsp;Us">Contact Us</span></a></li>
                             </ul>
                         </div>
                     </nav>
