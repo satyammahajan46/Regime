@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2018 at 09:39 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Generation Time: Nov 13, 2018 at 09:14 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 5.6.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -76,6 +76,7 @@ INSERT INTO `book genre` (`BISBN`, `BGenre`) VALUES
 ('1000000008', 'Biology'),
 ('1000000009', 'Computer Science'),
 ('1000000010', 'Arts'),
+('1001001001', 'Chemistry'),
 ('1234567890', 'Fiction');
 
 -- --------------------------------------------------------
@@ -104,7 +105,8 @@ INSERT INTO `book key` (`BID`, `BEdition`) VALUES
 (108, '4th'),
 (109, '3rd'),
 (110, '9th'),
-(111, '1st');
+(111, '1st'),
+(112, '2nd');
 
 -- --------------------------------------------------------
 
@@ -133,7 +135,8 @@ INSERT INTO `book name` (`BID`, `BName`, `BISBN`) VALUES
 (108, 'Biochemistry', '1000000007'),
 (109, 'Cell Biology', '1000000008'),
 (110, 'Java', '1000000009'),
-(111, 'Fine Arts', '1000000010');
+(111, 'Fine Arts', '1000000010'),
+(112, 'Molecular Chemistry', '1001001001');
 
 -- --------------------------------------------------------
 
@@ -175,6 +178,22 @@ CREATE TABLE `buys` (
   `BID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `buys`
+--
+
+INSERT INTO `buys` (`UID`, `BID`) VALUES
+(1, 101),
+(1, 103),
+(1, 104),
+(1, 110),
+(1, 112),
+(2, 103),
+(2, 104),
+(2, 106),
+(2, 107),
+(3, 101);
+
 -- --------------------------------------------------------
 
 --
@@ -186,6 +205,35 @@ CREATE TABLE `includes_additional_resources` (
   `RID` int(9) NOT NULL,
   `RName` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `includes_additional_resources`
+--
+
+INSERT INTO `includes_additional_resources` (`BID`, `RID`, `RName`) VALUES
+(101, 1, 'Solution Manual'),
+(101, 2, 'PowerPoint Slides'),
+(102, 1, 'Solution Manual'),
+(103, 3, 'Flash Cards'),
+(104, 1, 'Solution Manual'),
+(104, 4, 'Quiz'),
+(105, 1, 'Solution Manual'),
+(105, 4, 'Quiz'),
+(106, 2, 'PowerPoint Slides'),
+(106, 3, 'Flash Cards'),
+(107, 1, 'Solution Manual'),
+(108, 5, 'Videos'),
+(109, 1, 'Solution Manual'),
+(109, 3, 'Flash Cards'),
+(110, 2, 'PowerPoint Slides'),
+(110, 5, 'Videos'),
+(111, 1, 'Solution Manual'),
+(111, 3, 'Flash Cards'),
+(111, 4, 'Quiz'),
+(112, 1, 'Solution Manual'),
+(112, 2, 'PowerPoint Slides'),
+(112, 4, 'Quiz'),
+(112, 5, 'Videos');
 
 -- --------------------------------------------------------
 
@@ -262,7 +310,8 @@ CREATE TABLE `user information` (
 --
 
 INSERT INTO `user information` (`UEmail`, `UPassword`, `UName`, `UAddress`, `UType`) VALUES
-('smahajan02@langara.ca', 'sam', 'Satyam Mahajan', '777 111 surrey', 1);
+('kamikabrar16@gmail.com', 'kbHAPPY123', 'Kamika', '748 E 55 AVE', 1),
+('smahajan02@langara.ca', 'satyam', 'Satyam', 'NAAH', 1);
 
 -- --------------------------------------------------------
 
@@ -281,7 +330,9 @@ CREATE TABLE `user login` (
 --
 
 INSERT INTO `user login` (`UID`, `UEmail`, `UPassword`) VALUES
-(3, 'smahajan02@langara.ca', 'sam');
+(1, 'smahajan02@langara.ca', 'satyam'),
+(2, 'kamikabrar16@gmail.com', 'kbHAPPY123'),
+(3, 'jsingh039@langara.ca', 'jag');
 
 -- --------------------------------------------------------
 
@@ -301,7 +352,7 @@ CREATE TABLE `writes` (
 INSERT INTO `writes` (`AID`, `BID`) VALUES
 (1, 101),
 (2, 102),
-(3, 103),
+(2, 103),
 (4, 104),
 (5, 105),
 (6, 106),
@@ -411,13 +462,13 @@ ALTER TABLE `authors`
 -- AUTO_INCREMENT for table `book key`
 --
 ALTER TABLE `book key`
-  MODIFY `BID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `BID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT for table `book name`
 --
 ALTER TABLE `book name`
-  MODIFY `BID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `BID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT for table `publisher`
@@ -458,8 +509,8 @@ ALTER TABLE `book price`
 -- Constraints for table `buys`
 --
 ALTER TABLE `buys`
-  ADD CONSTRAINT `buys_ibfk_1` FOREIGN KEY (`UID`) REFERENCES `user login` (`UID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `buys_ibfk_2` FOREIGN KEY (`BID`) REFERENCES `book key` (`BID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `buys_ibfk_1` FOREIGN KEY (`UID`) REFERENCES `user login` (`UID`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `buys_ibfk_2` FOREIGN KEY (`BID`) REFERENCES `book key` (`BID`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `includes_additional_resources`
@@ -478,8 +529,8 @@ ALTER TABLE `publishes`
 -- Constraints for table `user information`
 --
 ALTER TABLE `user information`
-  ADD CONSTRAINT `user information_ibfk_1` FOREIGN KEY (`UEmail`) REFERENCES `user login` (`UEmail`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `user information_ibfk_2` FOREIGN KEY (`UPassword`) REFERENCES `user login` (`UPassword`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `user information_ibfk_1` FOREIGN KEY (`UEmail`) REFERENCES `user login` (`UEmail`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `user information_ibfk_2` FOREIGN KEY (`UPassword`) REFERENCES `user login` (`UPassword`);
 
 --
 -- Constraints for table `writes`
