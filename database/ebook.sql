@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2018 at 08:51 PM
+-- Generation Time: Nov 13, 2018 at 09:14 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -183,7 +183,16 @@ CREATE TABLE `buys` (
 --
 
 INSERT INTO `buys` (`UID`, `BID`) VALUES
-(1, 101);
+(1, 101),
+(1, 103),
+(1, 104),
+(1, 110),
+(1, 112),
+(2, 103),
+(2, 104),
+(2, 106),
+(2, 107),
+(3, 101);
 
 -- --------------------------------------------------------
 
@@ -322,7 +331,8 @@ CREATE TABLE `user login` (
 
 INSERT INTO `user login` (`UID`, `UEmail`, `UPassword`) VALUES
 (1, 'smahajan02@langara.ca', 'satyam'),
-(2, 'kamikabrar16@gmail.com', 'kbHAPPY123');
+(2, 'kamikabrar16@gmail.com', 'kbHAPPY123'),
+(3, 'jsingh039@langara.ca', 'jag');
 
 -- --------------------------------------------------------
 
@@ -470,7 +480,7 @@ ALTER TABLE `publisher`
 -- AUTO_INCREMENT for table `user login`
 --
 ALTER TABLE `user login`
-  MODIFY `UID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `UID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
