@@ -14,6 +14,7 @@
             echo "<br>";
             echo "id: " . $row["BID"]. " - Name: " . $row["BName"]. " " . $row["BPrice"]. "<br>";
         }
+        
     } else {
         echo "0 results";
     }
