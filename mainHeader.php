@@ -30,9 +30,9 @@ include 'header_files.php';
                                     </a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Books <span class="caret"></span>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Order History <span class="caret"></span>
                                         <ul class="dropdown-menu">
-                                            <li><a href="test.php">Add Some</a></li>
+                                            <li><a href="viewcrate.php">View your crate</a></li>
                                             <li><a href="test.php">View some</a></li>
                                         </ul>
                                     </a>
