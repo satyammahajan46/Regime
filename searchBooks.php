@@ -1,4 +1,32 @@
 <?php
+<<<<<<< HEAD
+include "validateLogin.php";
+?>
+<html>
+    <head>
+        <title>Login</title>
+        <?php
+        include "mainHeader.php";
+        ?>
+        <title>Welcome</title>
+    </head>
+    <body>
+        <div class="container">
+            <?php
+            include "connection.php";
+            include "printTable.php";
+            ?>
+        </div>
+        <footer style="padding-top:50px">
+            <section class="copyright-w3-agileits">
+                <?php
+                include "footer.php";
+                ?>
+            </section>
+        </footer>
+    </body>
+</html>
+=======
 	$query = "SELECT DISTINCT BGenre FROM `book genre`";
     $result = mysqli_query($conn,$query);
 
@@ -67,3 +95,4 @@
 		echo "Thank you for buying ".$string["BName"];
 	}
 ?>
+>>>>>>> 40f1a03107466022cb1e33ef3bed6289d4e8c93b
