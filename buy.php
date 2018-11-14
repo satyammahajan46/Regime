@@ -1,6 +1,6 @@
 <?php
 include "connection.php";
-include "validateLogin.php";
+session_start();
 if(isset($_POST['buy'])){
     $UEmail = $_SESSION["UEmail"];
     $BID = $_POST['buy'];
