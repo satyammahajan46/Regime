@@ -33,6 +33,7 @@
 
 		    if ($result2->num_rows > 0) {
 		    // output data of each row
+		    	echo $query2;
 		    	echo '<form action="search.php" method="post">';
 		    	echo '<table border= "1">';
 				echo '<tr>
@@ -44,7 +45,8 @@
 		            echo "<tr><th>". $row2["BName"]. "</th><th>". $row2["AName"].
 		            "</th><th><button type='submit' name='buy' value='". $row2["BID"]."' >Buy</button></tr>";
 		        }
-		        echo "</form>";
+		        echo "</table></form>";
+
 		    } else {
 		        echo "No Books Found ";
 		    }

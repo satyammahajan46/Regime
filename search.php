@@ -3,7 +3,7 @@
     ?>
 <html>
 <head>
-<title>Login</title>
+<title>Search Books</title>
 <?php
     include "mainHeader.php";
     ?>
