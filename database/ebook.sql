@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2018 at 09:14 PM
+-- Generation Time: Nov 14, 2018 at 07:56 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -128,7 +128,7 @@ INSERT INTO `book name` (`BID`, `BName`, `BISBN`) VALUES
 (101, 'Who Are You?', '1234567890'),
 (102, 'Biology of Life', '1000000001'),
 (103, 'Biology of Life', '1000000002'),
-(104, 'World of Computer Sc', '1000000003'),
+(104, 'World of CPSC', '1000000003'),
 (105, 'Fine Arts', '1000000004'),
 (106, 'Intro to Computer Sc', '1000000005'),
 (107, 'Intro to Web Program', '1000000006'),
@@ -165,7 +165,7 @@ INSERT INTO `book price` (`BName`, `BEdition`, `BPrice`) VALUES
 ('Intro to Web Program', '3rd', 400),
 ('Java', '9th', 330),
 ('Who Are You?', '1st', 20),
-('World of Computer Sc', '4th', 289.9);
+('World of CPSC', '4th', 289.9);
 
 -- --------------------------------------------------------
 
@@ -184,15 +184,12 @@ CREATE TABLE `buys` (
 
 INSERT INTO `buys` (`UID`, `BID`) VALUES
 (1, 101),
-(1, 103),
-(1, 104),
-(1, 110),
-(1, 112),
+(2, 101),
 (2, 103),
 (2, 104),
-(2, 106),
+(2, 105),
 (2, 107),
-(3, 101);
+(2, 108);
 
 -- --------------------------------------------------------
 
@@ -310,7 +307,9 @@ CREATE TABLE `user information` (
 --
 
 INSERT INTO `user information` (`UEmail`, `UPassword`, `UName`, `UAddress`, `UType`) VALUES
+('jsingh039@langara.ca', 'jag', 'Jagdeep Singh', 'East 49 Langara', 1),
 ('kamikabrar16@gmail.com', 'kbHAPPY123', 'Kamika', '748 E 55 AVE', 1),
+('paul@lucas.ca', 'paul', 'Paul Lucas', '738 Jervis St', 1),
 ('smahajan02@langara.ca', 'satyam', 'Satyam', 'NAAH', 1);
 
 -- --------------------------------------------------------
@@ -332,7 +331,8 @@ CREATE TABLE `user login` (
 INSERT INTO `user login` (`UID`, `UEmail`, `UPassword`) VALUES
 (1, 'smahajan02@langara.ca', 'satyam'),
 (2, 'kamikabrar16@gmail.com', 'kbHAPPY123'),
-(3, 'jsingh039@langara.ca', 'jag');
+(4, 'paul@lucas.ca', 'paul'),
+(5, 'jsingh039@langara.ca', 'jag');
 
 -- --------------------------------------------------------
 
@@ -353,8 +353,10 @@ INSERT INTO `writes` (`AID`, `BID`) VALUES
 (1, 101),
 (2, 102),
 (2, 103),
+(3, 112),
 (4, 104),
 (5, 105),
+(5, 111),
 (6, 106),
 (7, 107),
 (8, 108),
@@ -480,7 +482,7 @@ ALTER TABLE `publisher`
 -- AUTO_INCREMENT for table `user login`
 --
 ALTER TABLE `user login`
-  MODIFY `UID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `UID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
