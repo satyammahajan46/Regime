@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2018 at 07:56 PM
+-- Generation Time: Nov 14, 2018 at 08:03 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -307,6 +307,7 @@ CREATE TABLE `user information` (
 --
 
 INSERT INTO `user information` (`UEmail`, `UPassword`, `UName`, `UAddress`, `UType`) VALUES
+('danielliang@gmail.com', 'daniel', 'Daniel Liang', '356 East 55 Ave', 0),
 ('jsingh039@langara.ca', 'jag', 'Jagdeep Singh', 'East 49 Langara', 1),
 ('kamikabrar16@gmail.com', 'kbHAPPY123', 'Kamika', '748 E 55 AVE', 1),
 ('paul@lucas.ca', 'paul', 'Paul Lucas', '738 Jervis St', 1),
@@ -332,7 +333,8 @@ INSERT INTO `user login` (`UID`, `UEmail`, `UPassword`) VALUES
 (1, 'smahajan02@langara.ca', 'satyam'),
 (2, 'kamikabrar16@gmail.com', 'kbHAPPY123'),
 (4, 'paul@lucas.ca', 'paul'),
-(5, 'jsingh039@langara.ca', 'jag');
+(5, 'jsingh039@langara.ca', 'jag'),
+(6, 'danielliang@gmail.com', 'daniel');
 
 -- --------------------------------------------------------
 
@@ -482,7 +484,7 @@ ALTER TABLE `publisher`
 -- AUTO_INCREMENT for table `user login`
 --
 ALTER TABLE `user login`
-  MODIFY `UID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `UID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
