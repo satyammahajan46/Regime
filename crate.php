@@ -14,8 +14,12 @@
             echo "<br>";
             echo "id: " . $row["BID"]. " - Name: " . $row["BName"]. " " . $row["BPrice"]. "<br>";
         }
-        
     } else {
         echo "0 results";
     }
+    
+    $count= "SELECT COUNT(*) FROM `book name` bn, `book price` bp, `buys` b  WHERE bn.BName=bp.BName AND b.UID =".$UIDrow["UID"]." AND b.BID = bn.BID";
+        $result2 = $conn->query($count);
+        $row2 = $result2->fetch_assoc()
+       echo row2[count(*)];
 ?>
