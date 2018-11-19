@@ -16,10 +16,17 @@
     $result = $conn->query($select);
 
     if ($result){
+        echo '<table class="table table-bordered table hover">';
+           echo '<tr>
+                <th>Book ID</th>
+                <th>Book Name</th>
+                <th>Price</th>
+                </tr>';
         while($row = $result->fetch_assoc()) {
-            echo "<br>";
-            echo "id: " . $row["BID"]. " - Name: " . $row["BName"]. " " . $row["BPrice"]. "<br>";
+          
+            echo "<tr><td> " . $row["BID"]. "</td><td>" . $row["BName"]. "</td><td>" . $row["BPrice"]. "</td>";
         }
+        echo '</table>';
 
 
 
@@ -30,5 +37,6 @@
     $count= "SELECT COUNT(*) AS C FROM `book name` bn, `book price` bp, `buys` b  WHERE bn.BName=bp.BName AND b.UID =".$UIDrow["UID"]." AND b.BID = bn.BID";
         $result2 = $conn->query($count);
         $row2 = $result2->fetch_assoc();
-       echo $row2["C"];
+    echo '<h3 class="center-block">Total Books Bought:&nbsp'. $row2["C"]."</h3>" ;
+       
 ?>
