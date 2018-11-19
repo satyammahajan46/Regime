@@ -48,7 +48,14 @@ if(isset($_POST['submit'])){
                 $num++;
             }
         }
-        $query2 = "SELECT bn.BName, a.AName, bn.BID FROM `book name` bn, `book genre` bg, `authors` a, `writes` w WHERE bn.BISBN = bg.BISBN AND w.BID = bn.BID AND a.AID = w.AID AND (" . $string.")";
+        $query2 = "SELECT bn.BName, a.AName, bn.BID, bp.BPrice, bp.BEdition FROM `book name` bn, `book genre` bg, `book key` bk, `book price` bp, `authors` a, `writes` w WHERE 
+            bn.BISBN = bg.BISBN AND 
+            w.BID = bn.BID AND 
+            a.AID = w.AID AND 
+            bp.BEdition = bk.BEdition AND 
+            bp.BName = bn.BName AND 
+            bn.BID = bk.BID AND 
+            (" . $string.")";
         $result2 = mysqli_query($conn,$query2);
 
         if ($result2->num_rows > 0) {
@@ -57,13 +64,14 @@ if(isset($_POST['submit'])){
             echo '<form action="buy.php" method="post">';
             echo '<table class="table table-bordered table hover">';
             echo '<tr>
-    <th>Book Name</th>
-    <th>Author</th>
-    <th>Purchase</th>
-    </tr>';
+                <th>Book Name</th>
+                <th>Edition</th>
+                <th>Author</th>
+                <th>Price</th>
+                <th>Purchase</th>
+                </tr>';
             while($row2 = $result2->fetch_assoc()) {  
-                echo "<tr><th>". $row2["BName"]. "</th><th>". $row2["AName"].
-                    "</th><th><button type='submit' name='buy' value='". $row2["BID"]."' >Buy</button></tr>";
+                echo "<tr><th>". $row2["BName"]. "</th><th>".$row2["BEdition"]. "</th><th>". $row2["AName"]."</th><th>". $row2["BPrice"]."</th><th><button type='submit' name='buy' value='". $row2["BID"]."' >Buy</button></tr>";
             }
             echo "</table></form>";
 
