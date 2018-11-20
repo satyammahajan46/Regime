@@ -1,5 +1,5 @@
 <?php
-    
+
     include "connection.php";
     $user = $_SESSION["UEmail"];
     $UIDquery = "SELECT UID FROM `user login` WHERE UEmail = '".$user."'";
@@ -48,8 +48,30 @@
     }
     
     $count= "SELECT COUNT(*) AS C FROM `buys` WHERE UID ='".$UIDrow["UID"]."'";
-        $result2 = $conn->query($count);
-        $row2 = $result2->fetch_assoc();
+    $result2 = $conn->query($count);
+    $row2 = $result2->fetch_assoc();
     echo '<h3 class="center-block">Total Books Bought:&nbsp'. $row2["C"]."</h3>" ;
+    echo '<br>';
+
+    if($type["UType"] == false){
+        $sum = "SELECT SUM(bp.BPrice * 0.8) AS S FROM `book name` bn, `book price` bp, `book key` bk, `buys` b WHERE 
+                bn.BName=bp.BName AND 
+                bp.BEdition = bk.BEdition AND 
+                bp.BName = bn.BName AND 
+                bn.BID = bk.BID AND 
+                b.BID = bn.BID AND 
+                b.UID =".$UIDrow["UID"];
+    }else{
+       $sum = "SELECT SUM(bp.BPrice) AS S FROM `book name` bn, `book price` bp, `book key` bk, `buys` b WHERE 
+                bn.BName=bp.BName AND 
+                bp.BEdition = bk.BEdition AND 
+                bp.BName = bn.BName AND 
+                bn.BID = bk.BID AND 
+                b.BID = bn.BID AND 
+                b.UID =".$UIDrow["UID"]; 
+    }
+    $result3 = $conn->query($sum);
+    $row3 = $result3->fetch_assoc();
+    echo '<h3 class="center-block">Total Price:&nbsp'. $row3["S"]."</h3>" ;
        
 ?>
