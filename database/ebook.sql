@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2018 at 08:03 PM
+-- Generation Time: Nov 20, 2018 at 08:50 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -164,6 +164,7 @@ INSERT INTO `book price` (`BName`, `BEdition`, `BPrice`) VALUES
 ('Intro to Computer Sc', '7th', 455),
 ('Intro to Web Program', '3rd', 400),
 ('Java', '9th', 330),
+('Molecular Chemistry', '2nd', 200),
 ('Who Are You?', '1st', 20),
 ('World of CPSC', '4th', 289.9);
 
@@ -185,11 +186,13 @@ CREATE TABLE `buys` (
 INSERT INTO `buys` (`UID`, `BID`) VALUES
 (1, 101),
 (2, 101),
+(2, 102),
 (2, 103),
 (2, 104),
 (2, 105),
 (2, 107),
-(2, 108);
+(2, 108),
+(2, 112);
 
 -- --------------------------------------------------------
 
@@ -259,7 +262,8 @@ INSERT INTO `publisher` (`PID`, `PName`, `PAddress`, `PDate`) VALUES
 (7, 'John Wiley and sons', '201 Oak St. Maineville, OH 450', '2002-06-30'),
 (8, 'Simon and Schuster', '800 Foxrun Rd. Wolfville, NS B', '0196-01-09'),
 (9, 'Pan Macmillian', '7447 Big Rock Cove Dr.Olds, AB', '2014-08-01'),
-(10, 'A&C Black', '46 Boston St.\r\nSt. Mary,ON N4X', '1991-03-16');
+(10, 'A&C Black', '46 Boston St.\r\nSt. Mary,ON N4X', '1991-03-16'),
+(11, 'Jack and Jones', '345 East 92 Ave NY', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -286,7 +290,8 @@ INSERT INTO `publishes` (`BID`, `PID`) VALUES
 (107, 7),
 (108, 8),
 (109, 9),
-(110, 10);
+(110, 10),
+(111, 11);
 
 -- --------------------------------------------------------
 
@@ -478,7 +483,7 @@ ALTER TABLE `book name`
 -- AUTO_INCREMENT for table `publisher`
 --
 ALTER TABLE `publisher`
-  MODIFY `PID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `PID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `user login`
