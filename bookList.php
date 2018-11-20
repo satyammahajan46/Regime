@@ -28,7 +28,8 @@ include "validateLogin.php";
                 // output data of each row
                 echo '<h1 class="center-block">Books</h1>';
 
-                echo '<table>';
+                echo '<table class="table table-bordered table hover" >';
+                echo '<tr><th>Book Name</th></tr>';
                 while($row = $result->fetch_assoc()) {  
                     echo '<tr><td>'.$row["BName"]. ' </td></tr>';
                 }
