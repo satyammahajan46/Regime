@@ -42,7 +42,7 @@ include 'header_files.php';
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Buy Books <span class="caret"></span>
                                         <ul class="dropdown-menu">
                                             <li><a href="search.php">Search Book</a></li>
-                                            <li><a href="test.php">IDK</a></li>
+                                            <li><a href="bookList.php">View All Books</a></li>
 
                                         </ul>
                                     </a>
@@ -52,6 +52,7 @@ include 'header_files.php';
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Settings <span class="caret"></span>
                                         <ul class="dropdown-menu">
                                             <li><a href="changepass.php"> Change Password</a></li>
+                                            <li><a href="viewpass.php"> Whats my User ID</a></li>
                                             <li><a href="deleteacc.php">Delete your account</a></li>
                                             <li><a href="logout.php">Logout</a></li>
 
