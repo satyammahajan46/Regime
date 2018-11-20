@@ -5,14 +5,27 @@
     $UIDquery = "SELECT UID FROM `user login` WHERE UEmail = '".$user."'";
     $UIDget = mysqli_query($conn,$UIDquery);
     $UIDrow = $UIDget->fetch_assoc();
+    $typeQuery = "SELECT UType FROM `user information` WHERE UEmail = '".$user."'";
+    $typeResult = mysqli_query($conn,$typeQuery);
+    $type = $typeResult->fetch_assoc();
 
-    $select = "SELECT bn.BID, bn.BName, bp.BEdition, bp.BPrice FROM `book name` bn, `book price` bp, `book key` bk, `buys` b WHERE 
-        bn.BName=bp.BName AND 
-        bp.BEdition = bk.BEdition AND 
-        bp.BName = bn.BName AND 
-        bn.BID = bk.BID AND 
-        b.BID = bn.BID AND 
-        b.UID =".$UIDrow["UID"];
+    if($type["UType"] == false){
+        $select = "SELECT bn.BID, bn.BName, bp.BEdition, bp.BPrice * 0.8 AS BPrice FROM `book name` bn, `book price` bp, `book key` bk, `buys` b WHERE 
+            bn.BName=bp.BName AND 
+            bp.BEdition = bk.BEdition AND 
+            bp.BName = bn.BName AND 
+            bn.BID = bk.BID AND 
+            b.BID = bn.BID AND 
+            b.UID =".$UIDrow["UID"];
+    }else{
+        $select = "SELECT bn.BID, bn.BName, bp.BEdition, bp.BPrice FROM `book name` bn, `book price` bp, `book key` bk, `buys` b WHERE 
+            bn.BName=bp.BName AND 
+            bp.BEdition = bk.BEdition AND 
+            bp.BName = bn.BName AND 
+            bn.BID = bk.BID AND 
+            b.BID = bn.BID AND 
+            b.UID =".$UIDrow["UID"];
+    }
     $result = $conn->query($select);
 
     if ($result){
@@ -34,7 +47,7 @@
         echo "0 results";
     }
     
-    $count= "SELECT COUNT(*) AS C FROM `book name` bn, `book price` bp, `buys` b  WHERE bn.BName=bp.BName AND b.UID =".$UIDrow["UID"]." AND b.BID = bn.BID";
+    $count= "SELECT COUNT(*) AS C FROM `buys` WHERE UID ='".$UIDrow["UID"]."'";
         $result2 = $conn->query($count);
         $row2 = $result2->fetch_assoc();
     echo '<h3 class="center-block">Total Books Bought:&nbsp'. $row2["C"]."</h3>" ;
