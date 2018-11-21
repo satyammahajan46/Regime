@@ -26,17 +26,14 @@ if(isset($_POST['submit'])){
     if(!empty($_POST['details'])){;
     $list = $_POST['details'];
 	$email = $_SESSION["UEmail"];
+	$details = "SELECT UID, UPassword FROM `user login` WHERE UEmail ='".$email."'";
+	$result = $conn->query($details);
+	$row = $result->fetch_assoc();
 		if(in_array("id", $list)){
-			$UID = "SELECT UID FROM `user login` WHERE UEmail ='".$email."'";
-			$result = $conn->query($UID);
-			$row = $result->fetch_assoc();
 			echo '<h3 class="center-block">Your User ID is:&nbsp'. $row["UID"]."</h3>" ;
 		}
 		if(in_array("password", $list)){
-			$password = "SELECT UPassword FROM `user login` WHERE UEmail ='".$email."'";
-			$result2 = $conn->query($password);
-			$row2 = $result2->fetch_assoc();
-			echo '<h3 class="center-block">Your Password is:&nbsp'. $row2["UPassword"]."</h3>" ;
+			echo '<h3 class="center-block">Your Password is:&nbsp'. $row["UPassword"]."</h3>" ;
 		}
 	}
 }
