@@ -52,7 +52,7 @@ include 'header_files.php';
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Settings <span class="caret"></span>
                                         <ul class="dropdown-menu">
                                             <li><a href="changepass.php"> Change Password</a></li>
-                                            <li><a href="viewpass.php"> Whats my User ID</a></li>
+                                            <li><a href="viewpass.php"> View User Details</a></li>
                                             <li><a href="deleteacc.php">Delete your account</a></li>
                                             <li><a href="logout.php">Logout</a></li>
 

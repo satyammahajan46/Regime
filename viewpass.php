@@ -3,7 +3,7 @@
     ?>
 <html>
 <head>
-<title>Login</title>
+<title>View User Details</title>
 <?php
     include "mainHeader.php";
     ?>
@@ -14,16 +14,30 @@
 <?php
     include "connection.php";
     ?>
-<div class="container" style="padding-bottom:10;padding-top:10px;">
-
+<form action="viewpass.php" method="post">;
+	<div class="container" style="padding-bottom:10;padding-top:10px;">
+		<input type="checkbox" name="details[]" value="id"><label>View User ID &nbsp</label>
+		<input type="checkbox" name="details[]" value="password"><label>View Password &nbsp</label>
+		<input type="submit" name="submit" value="Submit"/>
+	</div>
+</form>
 <?php
-$email = $_SESSION["UEmail"];
-$select = "Select UID AS p from `user login` where UEmail ='".$email."'";
-$result = $conn->query($select);
-$row = $result->fetch_assoc();
-echo '<h3 class="center-block">Your User ID is :&nbsp'. $row["p"]."</h3>" ;
+if(isset($_POST['submit'])){
+    if(!empty($_POST['details'])){;
+    $list = $_POST['details'];
+	$email = $_SESSION["UEmail"];
+	$details = "SELECT UID, UPassword FROM `user login` WHERE UEmail ='".$email."'";
+	$result = $conn->query($details);
+	$row = $result->fetch_assoc();
+		if(in_array("id", $list)){
+			echo '<h3 class="center-block">Your User ID is:&nbsp'. $row["UID"]."</h3>" ;
+		}
+		if(in_array("password", $list)){
+			echo '<h3 class="center-block">Your Password is:&nbsp'. $row["UPassword"]."</h3>" ;
+		}
+	}
+}
 ?>
-</div>
 </div>
 
 <footer>
