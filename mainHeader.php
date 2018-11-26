@@ -32,8 +32,8 @@ include 'header_files.php';
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Order History <span class="caret"></span>
                                         <ul class="dropdown-menu">
-                                            <li><a href="viewcrate.php">View your crate</a></li>
-                                            <li><a href="test.php">View some</a></li>
+                                            <li><a href="viewcrate.php">View your cart</a></li>
+                                            <li><a href="divison.php">View some</a></li>
                                         </ul>
                                     </a>
                                 </li>
