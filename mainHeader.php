@@ -43,6 +43,7 @@ include 'header_files.php';
                                         <ul class="dropdown-menu">
                                             <li><a href="search.php">Search Book</a></li>
                                             <li><a href="bookList.php">View All Books</a></li>
+                                            <li><a href="Nested.php">Nested Query</a></li>
 
                                         </ul>
                                     </a>
