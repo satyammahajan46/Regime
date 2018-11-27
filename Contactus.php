@@ -9,7 +9,7 @@
     <body>
         <div>
             <?php
-            include "testHeader.php";
+            include "commonHeader.php";
             include "connection.php";
             ?>
             <div class="container">

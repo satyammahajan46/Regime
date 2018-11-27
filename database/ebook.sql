@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2018 at 08:50 PM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 5.6.38
+-- Generation Time: Nov 28, 2018 at 12:09 AM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -164,7 +164,7 @@ INSERT INTO `book price` (`BName`, `BEdition`, `BPrice`) VALUES
 ('Intro to Computer Sc', '7th', 455),
 ('Intro to Web Program', '3rd', 400),
 ('Java', '9th', 330),
-('Molecular Chemistry', '2nd', 200),
+('Molecular Chemistry', '2nd', 100),
 ('Who Are You?', '1st', 20),
 ('World of CPSC', '4th', 289.9);
 
@@ -184,15 +184,12 @@ CREATE TABLE `buys` (
 --
 
 INSERT INTO `buys` (`UID`, `BID`) VALUES
-(1, 101),
 (2, 101),
-(2, 102),
 (2, 103),
 (2, 104),
 (2, 105),
 (2, 107),
-(2, 108),
-(2, 112);
+(2, 108);
 
 -- --------------------------------------------------------
 
@@ -262,8 +259,7 @@ INSERT INTO `publisher` (`PID`, `PName`, `PAddress`, `PDate`) VALUES
 (7, 'John Wiley and sons', '201 Oak St. Maineville, OH 450', '2002-06-30'),
 (8, 'Simon and Schuster', '800 Foxrun Rd. Wolfville, NS B', '0196-01-09'),
 (9, 'Pan Macmillian', '7447 Big Rock Cove Dr.Olds, AB', '2014-08-01'),
-(10, 'A&C Black', '46 Boston St.\r\nSt. Mary,ON N4X', '1991-03-16'),
-(11, 'Jack and Jones', '345 East 92 Ave NY', '0000-00-00');
+(10, 'A&C Black', '46 Boston St.\r\nSt. Mary,ON N4X', '1991-03-16');
 
 -- --------------------------------------------------------
 
@@ -290,8 +286,7 @@ INSERT INTO `publishes` (`BID`, `PID`) VALUES
 (107, 7),
 (108, 8),
 (109, 9),
-(110, 10),
-(111, 11);
+(110, 10);
 
 -- --------------------------------------------------------
 
@@ -316,7 +311,7 @@ INSERT INTO `user information` (`UEmail`, `UPassword`, `UName`, `UAddress`, `UTy
 ('jsingh039@langara.ca', 'jag', 'Jagdeep Singh', 'East 49 Langara', 1),
 ('kamikabrar16@gmail.com', 'kbHAPPY123', 'Kamika', '748 E 55 AVE', 1),
 ('paul@lucas.ca', 'paul', 'Paul Lucas', '738 Jervis St', 1),
-('smahajan02@langara.ca', 'satyam', 'Satyam', 'NAAH', 1);
+('smahajan02@langara.ca', 'sam', 'Satyam Mahajan', 'asjcgfuay', 1);
 
 -- --------------------------------------------------------
 
@@ -335,11 +330,11 @@ CREATE TABLE `user login` (
 --
 
 INSERT INTO `user login` (`UID`, `UEmail`, `UPassword`) VALUES
-(1, 'smahajan02@langara.ca', 'satyam'),
 (2, 'kamikabrar16@gmail.com', 'kbHAPPY123'),
 (4, 'paul@lucas.ca', 'paul'),
 (5, 'jsingh039@langara.ca', 'jag'),
-(6, 'danielliang@gmail.com', 'daniel');
+(6, 'danielliang@gmail.com', 'daniel'),
+(7, 'smahajan02@langara.ca', 'sam');
 
 -- --------------------------------------------------------
 
@@ -483,13 +478,13 @@ ALTER TABLE `book name`
 -- AUTO_INCREMENT for table `publisher`
 --
 ALTER TABLE `publisher`
-  MODIFY `PID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `PID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user login`
 --
 ALTER TABLE `user login`
-  MODIFY `UID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `UID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -518,8 +513,8 @@ ALTER TABLE `book price`
 -- Constraints for table `buys`
 --
 ALTER TABLE `buys`
-  ADD CONSTRAINT `buys_ibfk_1` FOREIGN KEY (`UID`) REFERENCES `user login` (`UID`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `buys_ibfk_2` FOREIGN KEY (`BID`) REFERENCES `book key` (`BID`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `buys_ibfk_1` FOREIGN KEY (`UID`) REFERENCES `user login` (`UID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `buys_ibfk_2` FOREIGN KEY (`BID`) REFERENCES `book key` (`BID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `includes_additional_resources`
@@ -538,8 +533,8 @@ ALTER TABLE `publishes`
 -- Constraints for table `user information`
 --
 ALTER TABLE `user information`
-  ADD CONSTRAINT `user information_ibfk_1` FOREIGN KEY (`UEmail`) REFERENCES `user login` (`UEmail`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `user information_ibfk_2` FOREIGN KEY (`UPassword`) REFERENCES `user login` (`UPassword`);
+  ADD CONSTRAINT `user information_ibfk_1` FOREIGN KEY (`UEmail`) REFERENCES `user login` (`UEmail`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user information_ibfk_2` FOREIGN KEY (`UPassword`) REFERENCES `user login` (`UPassword`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `writes`
