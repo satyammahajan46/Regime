@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="c2aa3ead-bfe8-4286-939d-7a0bc38fc0eb" name="gst" url="http://localhost/gst">
+        <fileTransfer port="0" mountedRoot="C:\xamp\htdocs\gst" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
